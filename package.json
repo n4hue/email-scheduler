@@ -1,0 +1,20 @@
+{
+  "name": "email-scheduler",
+  "version": "1.0.0",
+  "main": "server.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "n4hue",
+  "license": "ISC",
+  "description": "A Node.js application to schedule daily emails.",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.13"
+  }
+}
