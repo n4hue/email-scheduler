@@ -4,6 +4,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
     const to = document.getElementById('to').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
+    const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
     fetch('/scheduleEmail', {
@@ -11,7 +12,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ to, subject, message, time }),
+        body: JSON.stringify({ to, subject, message, date, time }),
     })
     .then(response => response.json())
     .then(data => {

@@ -5,15 +5,15 @@ const transporter = nodemailer.createTransport({
   port: 465, // 465 for SSL
   secure: true, // true for 465, false for other ports
   auth: {
-    user: 'your-email@gmail.com',
-    pass: 'your-application-google-password',
+    user: 'nahuelgamer584@gmail.com',
+    pass: 'cvbh unvz yzcl cgms',
   },
 });
 
 const sendEmail = async ({ to, subject, message }) => {
   try {
     await transporter.sendMail({
-      from: '"your name" <your-email@gmail.com>',
+      from: '"Nahuel Nicolás Vignolo" <nahuelgamer584@gmail.com>',
       to,
       subject,
       text: message,
