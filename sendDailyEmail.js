@@ -5,19 +5,19 @@ const transporter = nodemailer.createTransport({
   port: 465, // 465 for SSL
   secure: true, // true for 465, false for other ports
   auth: {
-    user: 'nahuelgamer584@gmail.com',
-    pass: 'cvbh unvz yzcl cgms',
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
 const sendEmail = async ({ to, subject, message }) => {
   try {
     await transporter.sendMail({
-      from: '"Nahuel Nicolás Vignolo" <nahuelgamer584@gmail.com>',
+      from: `"${process.env.USERNAME}" <` + process.env.EMAIL_USER + '>',
       to,
       subject,
       text: message,
-      html: `<p>${message}</p>`,
+      html: `<b>${message}</b>`,
     });
     console.log('Email sent successfully!');
   } catch (error) {
