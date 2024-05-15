@@ -8,6 +8,7 @@ Email Scheduler is a Node.js application that allows users to schedule daily ema
 - **User-friendly Interface**: Simple and intuitive web interface for scheduling emails.
 - **Real-time Notifications**: Receive real-time feedback on the status of your scheduled emails.
 - **Timezone Support**: Schedule emails based on your local timezone.
+- **Select Date and Time**: Choose both the date and time for sending your emails.
 
 ## Technologies Used
 
@@ -30,25 +31,31 @@ Email Scheduler is a Node.js application that allows users to schedule daily ema
     npm install
     ```
 
-3. Configure the email transporter in `sendDailyEmail.js`:
+3. Create a `.env` file in the root directory and add your email credentials:
+    ```plaintext
+    EMAIL_USER=your-email@gmail.com
+    EMAIL_PASS=your-email-password
+    ```
+
+4. Configure the email transporter in `sendDailyEmail.js` to use environment variables:
     ```javascript
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
       secure: true,
       auth: {
-        user: 'your-email@gmail.com',
-        pass: 'your-email-password',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
     ```
 
-4. Start the server:
+5. Start the server:
     ```bash
     npm start
     ```
 
-5. Open your browser and navigate to `http://localhost:3000`.
+6. Open your browser and navigate to `http://localhost:3000`.
 
 ## Usage
 
@@ -59,5 +66,3 @@ Email Scheduler is a Node.js application that allows users to schedule daily ema
 ## License
 
 This project is licensed under the MIT License.
-
----
