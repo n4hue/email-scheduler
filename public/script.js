@@ -1,4 +1,4 @@
-document.getElementById('emailForm').addEventListener('submit', function(event) {
+document.getElementById('emailForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const to = document.getElementById('to').value;
@@ -7,23 +7,17 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
-    fetch('/scheduleEmail', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ to, subject, message, date, time }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            document.getElementById('status').textContent = 'Email scheduled successfully!';
-        } else {
-            document.getElementById('status').textContent = 'Failed to schedule email.';
-        }
-    })
-    .catch(error => {
-        document.getElementById('status').textContent = 'Error scheduling email.';
-        console.error('Error:', error);
-    });
+    axios.post('/scheduleEmail', { to, subject, message, date, time })
+        .then(response => {
+            const alertDiv = document.getElementById('alert');
+            alertDiv.style.display = 'block';
+            alertDiv.className = 'alert alert-success';
+            alertDiv.innerText = 'Email successfully scheduled!';
+        })
+        .catch(error => {
+            const alertDiv = document.getElementById('alert');
+            alertDiv.style.display = 'block';
+            alertDiv.className = 'alert alert-danger';
+            alertDiv.innerText = 'Error scheduling email: ' + error.response.data.error;
+        });
 });
