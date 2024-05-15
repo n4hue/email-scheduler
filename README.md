@@ -61,5 +61,3 @@ Email Scheduler is a Node.js application that allows users to schedule daily ema
 This project is licensed under the MIT License.
 
 ---
-
-Replace `your-username` with your actual GitHub username and `your-email@gmail.com` and `your-email-password` with your actual email and password or use environment variables for better security practices.
