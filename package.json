@@ -17,5 +17,11 @@
     "moment-timezone": "^0.5.45",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
