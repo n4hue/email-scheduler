@@ -7,6 +7,7 @@ document.getElementById('emailForm').addEventListener('submit', function (event)
   const date = document.getElementById('date').value
   const time = document.getElementById('time').value
 
+  // eslint-disable-next-line no-undef
   axios.post('/scheduleEmail', { to, subject, message, date, time })
     .then(response => {
       const alertDiv = document.getElementById('alert')
